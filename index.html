@@ -1,0 +1,752 @@
+import { motion } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Star,
+  ShieldCheck,
+  Clock3,
+  CarFront,
+  Plane,
+  Mountain,
+  Trees,
+  Landmark,
+  ChevronRight,
+  MessageCircle,
+  Users,
+  Briefcase,
+  CalendarDays,
+  Route,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
+
+export default function LuxuryTravelCarLandingPage() {
+  const services = [
+    {
+      title: "Đón tiễn sân bay Đà Nẵng",
+      desc: "Đưa đón nhanh chóng, đúng giờ, hỗ trợ hành lý tận tình và luôn sẵn xe theo lịch hẹn.",
+      icon: Plane,
+      image:
+        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Đà Nẵng đi Hội An",
+      desc: "Di chuyển riêng tư, thoải mái, phù hợp gia đình, cặp đôi và khách công tác.",
+      icon: Route,
+      image:
+        "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Hội An đi Đà Nẵng",
+      desc: "Linh hoạt giờ đón, hỗ trợ lịch trình theo nhu cầu thực tế và thời gian của khách.",
+      icon: CarFront,
+      image:
+        "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Xe đi Bà Nà Hills",
+      desc: "Hành trình tiện nghi cho lịch trình tham quan nửa ngày hoặc cả ngày.",
+      icon: Mountain,
+      image:
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Xe đi Ngũ Hành Sơn",
+      desc: "Tuyến tham quan ngắn, dễ đặt, phù hợp khách lẻ, gia đình và nhóm nhỏ.",
+      icon: Landmark,
+      image:
+        "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Xe đi Chùa Linh Ứng",
+      desc: "Kết hợp ngắm biển, hành hương và check-in với tài xế thông thạo tuyến.",
+      icon: Sparkles,
+      image:
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Xe đi Mỹ Sơn",
+      desc: "Phù hợp tour văn hóa, lịch trình linh hoạt và chủ động điểm đón trả.",
+      icon: Trees,
+      image:
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      title: "Tour yêu cầu riêng",
+      desc: "Thiết kế lịch trình cá nhân hóa cho gia đình, nhóm bạn hoặc đoàn công ty.",
+      icon: Briefcase,
+      image:
+        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
+    },
+  ];
+
+  const vehicles = [
+    {
+      name: "Xe 4 chỗ",
+      fit: "Cặp đôi, khách công tác, gia đình nhỏ",
+      guests: "1 - 3 khách",
+      luggage: "1 - 2 vali",
+      highlight: "Riêng tư, nhanh gọn, tiết kiệm",
+      image:
+        "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Xe 7 chỗ",
+      fit: "Gia đình, nhóm bạn nhỏ",
+      guests: "4 - 6 khách",
+      luggage: "3 - 4 vali",
+      highlight: "Thoải mái, rộng rãi, linh hoạt",
+      image:
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Xe 16 chỗ",
+      fit: "Đoàn du lịch, công ty, nhóm đông",
+      guests: "7 - 15 khách",
+      luggage: "Nhiều hành lý",
+      highlight: "Phù hợp đoàn, tối ưu chi phí nhóm",
+      image:
+        "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+    },
+  ];
+
+  const prices = [
+    { route: "Sân Bay → Khách Sạn Đà Nẵng", seat4: "100.000", seat7: "130.000", seat16: "300.000" },
+    { route: "Bến Xe → Khách Sạn Đà Nẵng", seat4: "130.000", seat7: "180.000", seat16: "350.000" },
+    { route: "Đà Nẵng → Phố Cổ Hội An", seat4: "250.000", seat7: "300.000", seat16: "400.000" },
+    { route: "Đà Nẵng → Vinpearl Nam Hội An", seat4: "400.000", seat7: "450.000", seat16: "550.000" },
+    { route: "Đà Nẵng → Bà Nà Hill (2 chiều)", seat4: "550.000", seat7: "650.000", seat16: "900.000" },
+    { route: "Đà Nẵng → Núi Thần Tài (2 chiều)", seat4: "650.000", seat7: "750.000", seat16: "1.100.000" },
+    { route: "Đà Nẵng → Ngũ Hành Sơn (2 chiều)", seat4: "250.000", seat7: "300.000", seat16: "500.000" },
+    { route: "Đà Nẵng → Chùa Linh Ứng (2 chiều)", seat4: "250.000", seat7: "300.000", seat16: "500.000" },
+    { route: "Đà Nẵng → Thánh Địa Mỹ Sơn (2 chiều)", seat4: "800.000", seat7: "900.000", seat16: "1.200.000" },
+    { route: "Phố Cổ Hội An → Vinpearl Nam Hội An", seat4: "200.000", seat7: "250.000", seat16: "350.000" },
+    { route: "Phố Cổ Hội An → Bà Nà Hill (2 chiều)", seat4: "900.000", seat7: "1.000.000", seat16: "1.200.000" },
+    { route: "Phố Cổ Hội An → Núi Thần Tài (2 chiều)", seat4: "1.000.000", seat7: "1.100.000", seat16: "1.400.000" },
+    { route: "Phố Cổ Hội An → Chùa Linh Ứng (2 chiều)", seat4: "600.000", seat7: "700.000", seat16: "900.000" },
+    { route: "Phố Cổ Hội An → Ngũ Hành Sơn (2 chiều)", seat4: "450.000", seat7: "550.000", seat16: "750.000" },
+    { route: "Phố Cổ Hội An → Rừng Dừa Bảy Mẫu (2 chiều)", seat4: "200.000", seat7: "240.000", seat16: "350.000" },
+    { route: "Đà Nẵng → Huế City", seat4: "1.700.000", seat7: "1.900.000", seat16: "2.400.000" },
+    { route: "Hội An → Huế City", seat4: "1.800.000", seat7: "2.000.000", seat16: "2.600.000" },
+    { route: "City Tour (3 tiếng / 50km)", seat4: "120.000", seat7: "150.000", seat16: "200.000" },
+    { route: "City Tour ngày (12 tiếng / 100km)", seat4: "1.200.000", seat7: "1.400.000", seat16: "1.600.000" },
+  ];
+
+  const destinations = [
+    {
+      name: "Phố cổ Hội An",
+      desc: "Không gian cổ kính, đèn lồng rực rỡ và hành trình lý tưởng cho mọi du khách.",
+      image:
+        "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Bà Nà Hills",
+      desc: "Trải nghiệm cáp treo, khí hậu mát mẻ và nhiều điểm check-in nổi bật.",
+      image:
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Ngũ Hành Sơn",
+      desc: "Điểm đến tâm linh và thắng cảnh gần trung tâm, phù hợp nửa ngày tham quan.",
+      image:
+        "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Chùa Linh Ứng",
+      desc: "Hành trình ngắm biển, viếng chùa và tận hưởng cung đường đẹp tại bán đảo Sơn Trà.",
+      image:
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Rừng dừa Bảy Mẫu",
+      desc: "Phù hợp lịch trình khám phá Hội An kết hợp trải nghiệm sông nước đặc trưng.",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Thánh địa Mỹ Sơn",
+      desc: "Lựa chọn tuyệt vời cho du khách yêu thích văn hóa, lịch sử và kiến trúc Champa.",
+      image:
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "VinWonders Nam Hội An",
+      desc: "Phù hợp cho gia đình và nhóm bạn muốn một ngày vui chơi trọn vẹn.",
+      image:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      name: "Biển Mỹ Khê",
+      desc: "Điểm đón bình minh, thư giãn và kết hợp city tour cực kỳ thuận tiện.",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    },
+  ];
+
+  const reviews = [
+    {
+      name: "Anh Minh",
+      text: "Xe sạch, tài xế đúng giờ và hỗ trợ rất nhiệt tình. Gia đình mình đi Hội An rất thoải mái.",
+    },
+    {
+      name: "Chị Hạnh",
+      text: "Đặt xe nhanh qua điện thoại, phản hồi rất nhanh. Lịch trình tour riêng linh hoạt đúng nhu cầu.",
+    },
+    {
+      name: "Anh Phúc",
+      text: "Nhóm mình đi 16 chỗ, xe đẹp và chạy êm. Dịch vụ chuyên nghiệp, sẽ tiếp tục ủng hộ.",
+    },
+  ];
+
+  const reasons = [
+    { text: "Giá minh bạch, tư vấn rõ ràng", icon: ShieldCheck },
+    { text: "Xe sạch sẽ, đời mới, vận hành êm ái", icon: CarFront },
+    { text: "Tài xế lịch sự, thông thạo tuyến điểm", icon: Users },
+    { text: "Hỗ trợ nhanh 24/7 qua hotline và email", icon: Clock3 },
+    { text: "Linh hoạt lịch trình, điểm đón trả", icon: CalendarDays },
+    { text: "Phục vụ từ khách lẻ đến đoàn đông", icon: Briefcase },
+  ];
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <div className="min-h-screen scroll-smooth bg-slate-950 text-white">
+      <div className="border-b border-white/10 bg-slate-900/80 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-3 text-sm text-slate-200 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="inline-flex items-center gap-2">
+              <Phone className="h-4 w-4 text-amber-300" />
+              Hotline:
+              <a href="tel:0901292429" className="font-semibold text-amber-300">
+                0901292429
+              </a>
+            </span>
+            <span className="inline-flex items-center gap-2 break-all">
+              <Mail className="h-4 w-4 text-amber-300" />
+              <a
+                href="mailto:dichvuxedulichphongthu@gmail.com"
+                className="font-semibold text-amber-300"
+              >
+                dichvuxedulichphongthu@gmail.com
+              </a>
+            </span>
+          </div>
+          <div className="text-slate-300">Hỗ trợ đặt xe 24/7 · Đà Nẵng - Hội An - Tour yêu cầu</div>
+        </div>
+      </div>
+
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+          <div>
+            <div className="text-xl font-bold tracking-wide text-white">Phong Thu Travel Car</div>
+            <div className="text-xs text-slate-400">Xe du lịch 4 - 7 - 16 chỗ cao cấp</div>
+          </div>
+          <nav className="hidden gap-6 text-sm text-slate-300 lg:flex">
+            <a href="#dich-vu" className="transition hover:text-white">Dịch vụ</a>
+            <a href="#loai-xe" className="transition hover:text-white">Loại xe</a>
+            <a href="#bang-gia" className="transition hover:text-white">Bảng giá</a>
+            <a href="#tour-rieng" className="transition hover:text-white">Tour yêu cầu</a>
+            <a href="#danh-gia" className="transition hover:text-white">Đánh giá</a>
+            <a href="#lien-he" className="transition hover:text-white">Liên hệ</a>
+          </nav>
+          <div className="hidden items-center gap-3 md:flex">
+            <a
+              href="https://zalo.me/0901292429"
+              className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Zalo
+            </a>
+            <a
+              href="tel:0901292429"
+              className="rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-amber-400/20 transition hover:scale-[1.02]"
+            >
+              Gọi ngay
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80')",
+          }}
+        />
+        <div className="absolute inset-0 bg-slate-950/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.18),transparent_24%),radial-gradient(circle_at_left,rgba(59,130,246,0.18),transparent_30%)]" />
+
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:py-24 lg:grid-cols-2 lg:items-center lg:py-28">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ duration: 0.7 }}
+            className="relative z-10"
+          >
+            <div className="mb-4 inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm text-amber-200 backdrop-blur">
+              Dịch vụ xe du lịch cao cấp tại Đà Nẵng - Hội An
+            </div>
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
+              Thuê Xe Du Lịch 4 - 7 - 16 Chỗ Đẳng Cấp Cho Mọi Hành Trình
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Đón tiễn sân bay, đi Hội An, city tour, tour riêng theo yêu cầu. Xe sạch đẹp, tài xế chuyên nghiệp, hỗ trợ nhanh 24/7.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#booking"
+                className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02]"
+              >
+                Nhận báo giá ngay <ChevronRight className="h-4 w-4" />
+              </a>
+              <a
+                href="mailto:dichvuxedulichphongthu@gmail.com"
+                className="rounded-full border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              >
+                Gửi email tư vấn
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-200">
+              {['Giá rõ ràng', 'Xe đời mới', 'Tài xế kinh nghiệm', 'Phục vụ 24/7'].map((item) => (
+                <span key={item} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 backdrop-blur">
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-10 grid max-w-xl grid-cols-2 gap-4 md:grid-cols-4">
+              {[
+                ['1.000+', 'Chuyến xe'],
+                ['500+', 'Khách hài lòng'],
+                ['24/7', 'Hỗ trợ nhanh'],
+                ['100%', 'Linh hoạt'],
+              ].map(([num, label]) => (
+                <motion.div
+                  key={label}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl border border-white/10 bg-white/10 p-4 text-center backdrop-blur-xl"
+                >
+                  <div className="text-2xl font-bold text-amber-300">{num}</div>
+                  <div className="mt-1 text-sm text-slate-200">{label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            id="booking"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="relative z-10"
+          >
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur-2xl md:p-8">
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-white">Đặt xe nhanh</h2>
+                <p className="mt-2 text-slate-200">Điền thông tin để nhận báo giá nhanh và lịch trình phù hợp nhất.</p>
+              </div>
+              <form className="grid gap-4">
+                <input className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none placeholder:text-slate-400" placeholder="Điểm đón" />
+                <input className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none placeholder:text-slate-400" placeholder="Điểm đến" />
+                <div className="grid gap-4 md:grid-cols-2">
+                  <input type="date" className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none" />
+                  <input className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none placeholder:text-slate-400" placeholder="Số khách" />
+                </div>
+                <select className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none">
+                  <option>Chọn loại xe</option>
+                  <option>Xe 4 chỗ</option>
+                  <option>Xe 7 chỗ</option>
+                  <option>Xe 16 chỗ</option>
+                </select>
+                <input className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3 text-white outline-none placeholder:text-slate-400" placeholder="Số điện thoại liên hệ" />
+                <button type="button" className="rounded-2xl bg-amber-400 px-6 py-4 font-semibold text-slate-950 transition hover:scale-[1.01]">
+                  Nhận báo giá nhanh
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+        <div className="grid gap-4 md:grid-cols-4">
+          {[
+            { icon: ShieldCheck, title: 'Uy tín', text: 'Thông tin rõ ràng, dễ đặt xe' },
+            { icon: Clock3, title: 'Đúng giờ', text: 'Chủ động lịch đón trả' },
+            { icon: CarFront, title: 'Xe đẹp', text: 'Không gian sạch sẽ, tiện nghi' },
+            { icon: Star, title: 'Dễ chốt', text: 'Hỗ trợ nhanh qua hotline và Zalo' },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                whileHover={{ y: -4 }}
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-5"
+              >
+                <Icon className="h-10 w-10 text-amber-300" />
+                <h3 className="mt-4 text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-300">{item.text}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="dich-vu" className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Dịch vụ nổi bật</p>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Giải pháp di chuyển riêng tư, tiện nghi và linh hoạt</h2>
+          <p className="mt-4 text-slate-300">
+            Phù hợp cho khách du lịch, gia đình, nhóm bạn, khách công tác và các đoàn cần lịch trình riêng.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                whileHover={{ y: -6 }}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition"
+              >
+                <div
+                  className="h-48 bg-cover bg-center transition duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                />
+                <div className="p-6">
+                  <div className="mb-4 inline-flex rounded-2xl bg-amber-300/15 p-3">
+                    <Icon className="h-6 w-6 text-amber-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{service.desc}</p>
+                  <a href="tel:0901292429" className="mt-5 inline-flex items-center gap-2 font-semibold text-amber-300">
+                    Đặt tuyến này <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="loai-xe" className="bg-white/[0.03] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Loại xe</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Lựa chọn phù hợp cho từng nhu cầu di chuyển</h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {vehicles.map((vehicle) => (
+              <motion.div
+                whileHover={{ y: -6 }}
+                key={vehicle.name}
+                className="overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/70 shadow-xl"
+              >
+                <div
+                  className="h-56 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${vehicle.image})` }}
+                />
+                <div className="p-7">
+                  <h3 className="text-2xl font-bold">{vehicle.name}</h3>
+                  <p className="mt-3 text-slate-300">{vehicle.fit}</p>
+                  <div className="mt-6 space-y-3 text-sm text-slate-200">
+                    <div>Sức chứa: <span className="font-semibold text-white">{vehicle.guests}</span></div>
+                    <div>Hành lý: <span className="font-semibold text-white">{vehicle.luggage}</span></div>
+                    <div>Nổi bật: <span className="font-semibold text-amber-300">{vehicle.highlight}</span></div>
+                  </div>
+                  <a href="#bang-gia" className="mt-6 inline-flex rounded-full border border-amber-300/30 px-5 py-3 font-semibold text-amber-300 transition hover:bg-amber-300/10">
+                    Xem giá xe
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Vì sao chọn chúng tôi</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Dịch vụ đáng tin cậy cho mọi hành trình tại miền Trung</h2>
+            <p className="mt-5 text-slate-300">
+              Chúng tôi tập trung vào trải nghiệm đặt xe nhanh, đón đúng giờ, xe đẹp và hỗ trợ tận tâm để mỗi chuyến đi đều nhẹ nhàng hơn.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {reasons.map((reason) => {
+              const Icon = reason.icon;
+              return (
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  key={reason.text}
+                  className="rounded-3xl border border-white/10 bg-white/5 p-5 text-slate-200"
+                >
+                  <Icon className="mb-3 h-8 w-8 text-amber-300" />
+                  {reason.text}
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="bang-gia" className="bg-white/[0.03] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Bảng giá tham khảo</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Giá tham khảo cho các tuyến phổ biến</h2>
+            <p className="mt-4 text-slate-300">
+              Giá đã bao gồm xăng, tài xế, cầu đường. Giá có thể thay đổi vào dịp lễ, Tết hoặc theo lịch trình thực tế.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead className="bg-white/5 text-slate-200">
+                  <tr>
+                    <th className="px-6 py-4">Tuyến đường</th>
+                    <th className="px-6 py-4">Xe 4 chỗ</th>
+                    <th className="px-6 py-4">Xe 7 chỗ</th>
+                    <th className="px-6 py-4">Xe 16 chỗ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {prices.map((item) => (
+                    <tr key={item.route} className="border-t border-white/10 text-slate-300">
+                      <td className="px-6 py-4 font-medium text-white">{item.route}</td>
+                      <td className="px-6 py-4">{item.seat4}</td>
+                      <td className="px-6 py-4">{item.seat7}</td>
+                      <td className="px-6 py-4">{item.seat16}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="mt-6 text-center text-slate-300">
+            * Đơn vị: VNĐ. Giá có thể thay đổi vào dịp lễ, Tết. Liên hệ hotline 0901292429 để được báo giá chính xác.
+          </p>
+          <p className="mt-4 text-center text-sm text-slate-400">
+            Phụ phí: Xe chạy sau 22h tính thêm 20%. Điểm đón/trả ngoài trung tâm có thể phát sinh phụ phí.
+          </p>
+        </div>
+      </section>
+
+      <section id="tour-rieng" className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
+            <div
+              className="h-64 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=80')",
+              }}
+            />
+            <div className="p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Tour yêu cầu riêng</p>
+              <h2 className="mt-4 text-3xl font-bold md:text-4xl">Thiết kế lịch trình riêng theo nhu cầu của bạn</h2>
+              <p className="mt-5 leading-8 text-slate-300">
+                Phù hợp cho gia đình, nhóm bạn, khách công tác hoặc đoàn du lịch cần kết hợp nhiều điểm đến trong một hành trình linh hoạt.
+              </p>
+              <div className="mt-6 space-y-3 text-slate-200">
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-amber-300" /> Điểm đón trả linh hoạt</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-amber-300" /> Có thể ghép nhiều địa điểm trong 1 ngày</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-amber-300" /> Tư vấn lịch trình nhanh và rõ ràng</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-amber-300" /> Tối ưu chi phí theo số lượng khách</div>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <h3 className="text-2xl font-bold">Gửi yêu cầu tour riêng</h3>
+            <div className="mt-6 grid gap-4">
+              <input className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400" placeholder="Họ và tên" />
+              <input className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400" placeholder="Số điện thoại" />
+              <input className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400" placeholder="Email" />
+              <input className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400" placeholder="Số người" />
+              <input type="date" className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white" />
+              <textarea rows={4} className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400" placeholder="Lịch trình mong muốn" />
+              <button type="button" className="rounded-2xl bg-amber-400 px-6 py-4 font-semibold text-slate-950">
+                Gửi yêu cầu tour riêng
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white/[0.03] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Điểm đến nổi bật</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Khám phá những hành trình được yêu thích nhất</h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {destinations.map((destination) => (
+              <motion.div
+                whileHover={{ y: -6 }}
+                key={destination.name}
+                className="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/70"
+              >
+                <div
+                  className="h-56 bg-cover bg-center transition duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${destination.image})` }}
+                />
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-white">{destination.name}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">{destination.desc}</p>
+                  <a href="tel:0901292429" className="mt-4 inline-flex items-center gap-2 font-semibold text-amber-300">
+                    Đặt xe đến đây <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Quy trình đặt xe</p>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Đặt xe cực nhanh chỉ với vài bước</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-4">
+          {[
+            'Gửi thông tin chuyến đi',
+            'Nhận báo giá nhanh',
+            'Xác nhận lịch trình',
+            'Xe đón đúng giờ',
+          ].map((step, index) => (
+            <motion.div
+              whileHover={{ y: -4 }}
+              key={step}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center"
+            >
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-400 text-xl font-bold text-slate-950">
+                {index + 1}
+              </div>
+              <div className="mt-4 text-lg font-semibold text-white">{step}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section id="danh-gia" className="bg-white/[0.03] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Đánh giá khách hàng</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Khách hàng hài lòng là ưu tiên hàng đầu của chúng tôi</h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {reviews.map((review) => (
+              <motion.div
+                whileHover={{ y: -4 }}
+                key={review.name}
+                className="rounded-[28px] border border-white/10 bg-slate-900/70 p-7"
+              >
+                <div className="flex gap-1 text-amber-300">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-current" />
+                  ))}
+                </div>
+                <p className="mt-4 leading-8 text-slate-300">“{review.text}”</p>
+                <div className="mt-6 font-semibold text-white">{review.name}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="rounded-[36px] border border-amber-300/20 bg-gradient-to-r from-amber-400 to-yellow-300 p-8 text-slate-950 shadow-2xl shadow-amber-400/10 md:p-12">
+          <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-800">Liên hệ ngay</p>
+              <h2 className="mt-4 text-3xl font-extrabold md:text-5xl">Sẵn sàng cho chuyến đi Đà Nẵng - Hội An thật thoải mái?</h2>
+              <p className="mt-4 max-w-2xl text-lg text-slate-800/80">
+                Nhận báo giá nhanh, lịch trình rõ ràng và giải pháp xe phù hợp nhất cho cá nhân, gia đình hoặc đoàn của bạn.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 md:items-end">
+              <a href="tel:0901292429" className="rounded-full bg-slate-950 px-6 py-4 text-center font-semibold text-white">
+                Gọi 0901292429
+              </a>
+              <a href="mailto:dichvuxedulichphongthu@gmail.com" className="rounded-full border border-slate-950 px-6 py-4 text-center font-semibold text-slate-950">
+                Gửi email ngay
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="lien-he" className="border-t border-white/10 bg-slate-950 py-12">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="text-xl font-bold text-white">Phong Thu Travel Car</h3>
+            <p className="mt-4 text-sm leading-7 text-slate-400">
+              Dịch vụ xe du lịch 4 chỗ, 7 chỗ, 16 chỗ tại Đà Nẵng - Hội An - Tour yêu cầu với tiêu chí đúng giờ, tiện nghi và hỗ trợ tận tâm.
+            </p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white">Liên hệ</h4>
+            <div className="mt-4 space-y-3 text-sm text-slate-400">
+              <div className="inline-flex items-center gap-2"><Phone className="h-4 w-4 text-amber-300" /> <a href="tel:0901292429" className="text-amber-300">0901292429</a></div>
+              <div className="inline-flex items-start gap-2 break-all"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" /> <a href="mailto:dichvuxedulichphongthu@gmail.com" className="text-amber-300">dichvuxedulichphongthu@gmail.com</a></div>
+              <div className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-amber-300" /> Khu vực phục vụ: Đà Nẵng - Hội An</div>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white">Dịch vụ</h4>
+            <div className="mt-4 space-y-3 text-sm text-slate-400">
+              <div>Xe sân bay</div>
+              <div>Xe Đà Nẵng - Hội An</div>
+              <div>Xe tham quan</div>
+              <div>Tour riêng theo yêu cầu</div>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white">Hỗ trợ nhanh</h4>
+            <div className="mt-4 flex flex-col gap-3">
+              <a href="tel:0901292429" className="rounded-full bg-amber-400 px-5 py-3 text-center font-semibold text-slate-950">
+                Gọi hotline
+              </a>
+              <a href="https://zalo.me/0901292429" className="rounded-full border border-white/10 px-5 py-3 text-center font-semibold text-white">
+                Nhắn Zalo
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 px-4 pt-6 text-sm text-slate-500">
+          © 2026 Phong Thu Travel Car. All rights reserved.
+        </div>
+      </footer>
+
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3">
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          href="https://zalo.me/0901292429"
+          className="inline-flex items-center gap-2 rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white shadow-2xl"
+        >
+          <MessageCircle className="h-5 w-5" /> Zalo
+        </motion.a>
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          href="tel:0901292429"
+          className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-2xl"
+        >
+          <Phone className="h-5 w-5" /> Gọi ngay
+        </motion.a>
+      </div>
+    </div>
+  );
+}
